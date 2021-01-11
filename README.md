@@ -61,7 +61,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
+
 # gestor-de-projetos
 Aplicação feita para ajudar a realizar a gestão de projetos.
 >>>>>>> c13e373f55aa20994588c99ff65ddb7b4b62b7d9
