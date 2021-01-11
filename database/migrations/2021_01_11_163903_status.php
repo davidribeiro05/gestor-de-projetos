@@ -13,7 +13,10 @@ class Status extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('status', function (Blueprint $table) {
+            $table->id();
+            $table->string('status', 25)->default('Iniciado');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class Status extends Migration
      */
     public function down()
     {
-        //
+       Schema::dropIfExists('status');
     }
 }
