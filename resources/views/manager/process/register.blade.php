@@ -63,6 +63,12 @@
                         <input formaction="{{route('create_process')}}" type="submit" class="dropdown-item"
                                value="Salvar">
                     @endif
+                    @if(!empty($process->id))
+                        <a href="{{route('form_task', ['process_id' => $process->id])}}"
+                           class="dropdown-item" type="submit">
+                            Adicionar tarefas
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
