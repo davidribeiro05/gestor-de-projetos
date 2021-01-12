@@ -47,16 +47,30 @@
                 </select>
             </div>
         </div>
-        <div class="d-flex flex-row-reverse">
-            <div class="btn-group" role="group">
-                <a href="/" class="btn btn-danger">Cancelar</a>
-                @if(!empty($project->id))
-                    <input formaction="{{route('update_project')}}" type="submit" class="btn btn-success"
-                           value="Salvar">
-                @else
-                    <input formaction="{{route('create_project')}}" type="submit" class="btn btn-success"
-                           value="Salvar">
-                @endif
+
+        <div class="d-flex flex-row-reverse input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Ações
+                </button>
+                <div class="dropdown-menu">
+                    <a href="/" class="dropdown-item">Cancelar</a>
+                    @if(!empty($project->id))
+                        <input formaction="{{route('update_project')}}" type="submit"
+                               class="dropdown-item"
+                               value="Salvar">
+                    @else
+                        <input formaction="{{route('create_project')}}" type="submit"
+                               class="dropdown-item"
+                               value="Salvar">
+                    @endif
+                    @if(!empty($project->id))
+                        <a href="{{route('form_process', ['project_id' => $project->id])}}"
+                           class="dropdown-item" type="submit">
+                            Adicionar processo
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
     </form>
