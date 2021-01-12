@@ -36,7 +36,6 @@ class Project extends Controller
 
     public function update(Request $request)
     {
-
         ProjectModel::where('id', $request->id)
             ->update($request->except('_token'));
         return redirect()->route('edit_project', $request->id);

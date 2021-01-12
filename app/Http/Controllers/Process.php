@@ -11,11 +11,10 @@ class Process extends Controller
 {
     public function create(Request $request)
     {
-        $statuses = $statuses = Status::all('status');
 
         return view('manager.process.register', [
             'title' => 'Adicionar processos',
-            'statuses' => $statuses,
+            'statuses' => Status::all('status'),
             'project' => ProjectModel::findOrFail($request->project_id)
         ]);
     }
