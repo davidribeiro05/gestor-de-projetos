@@ -9,6 +9,9 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'start', 'delivery', 'workedHours', 'status'];
+    public $timestamps = true;
+
     public function processes()
     {
         return $this->hasMany(Process::class);
