@@ -36,3 +36,12 @@ Route::get('/processo/editar/{id}', 'Process@edit')
     ->name('edit_process');
 Route::post('/processo/editar', 'Process@update')
     ->name('update_process');
+
+Route::get('/tarefa/criar', 'Task@create')
+    ->name('form_task');
+Route::post('/tarefa', 'Task@store')
+    ->name('create_task');
+Route::get('/tarefa/editar/{id}', 'Task@edit')
+    ->name('edit_task');
+Route::post('/tarefa/editar', 'Task@update')
+    ->name('update_task');
