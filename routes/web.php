@@ -27,3 +27,12 @@ Route::get('/projeto/editar/{id}', 'Project@edit')
     ->name('edit_project');
 Route::post('/projeto/editar', 'Project@update')
     ->name('update_project');
+
+Route::get('/processo/criar', 'Process@create')
+    ->name('form_process');
+Route::post('/processo', 'Process@store')
+    ->name('create_process');
+Route::get('/processo/editar/{id}', 'Process@edit')
+    ->name('edit_process');
+Route::post('/processo/editar', 'Process@update')
+    ->name('update_process');
