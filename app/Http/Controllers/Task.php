@@ -21,6 +21,18 @@ class Task extends Controller
 
     public function store(Request $request)
     {
+        $task = new TaskModel();
+
+        if ($task->validateStartDate($request->delivery)) {  
+            return back()
+                ->with('error', 'A data de entrega não pode ser anterior a data de criação do processo.');
+        }
+
+        if ($task->validateDeliveryDate($request->delivery, $request->start)) {  
+            return back()
+                ->with('error', 'A data de entrega não pode ser anterior a data de criação da tarefa.');
+        }
+
         TaskModel::create($request->all());
     }
 

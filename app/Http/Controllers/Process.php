@@ -6,6 +6,7 @@ use App\Models\Process as ProcessModel;
 use App\Models\Project as ProjectModel;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Process extends Controller
 {
@@ -21,6 +22,17 @@ class Process extends Controller
 
     public function store(Request $request)
     {
+        $process = new ProcessModel();
+       
+        if ($process->validateStartDate($request->start)) {  
+            return back()
+                ->with('error', 'A data de criação do processo não pode ser anterior a data de criação do projeto.');
+        }
+
+        if ($task->validateDeliveryDate($request->delivery, $request->start)) {  
+            return back()
+                ->with('error', 'A data de entrega não pode ser anterior a data de criação do processo.');
+        }
         ProcessModel::create($request->all());
     }
 
